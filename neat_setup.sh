@@ -7,7 +7,7 @@
 # where url is https://gist.github.com/ThePython10110/d30451ffd35d8d3e443d792e499f9442/raw/neat_setup.sh
 # It sets up DWM too, which is neat.
 
-mkdir ~/neat_setup && cd ~/neat_setup
+mkdir -p ~/neat_setup && cd ~/neat_setup
 
 read -p "GUI (Y/n): " gui
 read -p "Minecraft (y/N): " mc
@@ -22,7 +22,7 @@ sudo apt update
 sudo apt install -y git gh
 gh auth login
 
-if [[ "$gui" != [nN][oO]* ]]; then
+if ! [[ "$gui" =~ [nN][oO]* ]]; then
     echo "\n\n---------------MANUAL DOWNLOADS------------------"
     echo "SAVE AS ~/neat_setup/thorium.deb"
     xdg-open "https://github.com/Alex313031/Thorium/releases/latest"
@@ -39,20 +39,23 @@ if [[ "$gui" != [nN][oO]* ]]; then
     echo "SAVE AS ~/neat_setup/Joplin.AppImage"
     xdg-open "https://github.com/laurent22/joplin/releases/latest"
     read -n 1 -s
+    echo "SAVE AS ~/neat_setup/rofi.tar.gz"
+    xdg-open "https://github.com/davatorium/rofi/releases/latest"
+    read -n 1 -s
 fi
 
 echo "\n\n----------------------GO AWAY----------------------"
 # Install Apt packages
 sudo apt install -y 7zip fzf curl python3-pip tldr trash-cli unrar make gcc
 
-if [[ "$minecraft" == [yY]([eE][sS])* ]]; then
+if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
     sudo apt install -y openjdk-21-jre openjdk-17-jre openjdk-8-jre
 fi
 
-if [[ "$gui" != [nN][oO]* ]]; then
+if ! [[ "$gui" =~ [nN][oO]* ]]; then
     sudo add-apt-repository ppa:minetestdevs/stable
     sudo apt update
-    if [[ "$minecraft" == [yY]([eE][sS])* ]]; then
+    if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
         flatpak install flathub com.atlauncher.ATLauncher
     fi
     sudo apt install -y gimp nitrogen musescore3 pavucontrol picom minetest \
@@ -64,7 +67,7 @@ curl "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar
 sudo gdebi thorium.deb
 curl "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
 sudo gdebi fastfetch.deb
-if [[ "$gui" != [nN][oO]* ]]; then
+if ! [[ "$gui" =~ [nN][oO]* ]]; then
     curl "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
     sudo gdebi appimagelauncher.deb
     curl "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
@@ -83,9 +86,13 @@ tar -xzf nvim-linux64.tar.gz
 sudo mv -f nvim-linux64 /opt
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-if [[ "$gui" != [nN][oO]* ]]; then
+if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Install kitty
     tar -xzf kitty.tar.gz -C ~/.local
+    # Install rofi (stupid cd workaround)
+    tar -xzf rofi.tar.gz . -C rofi
+    cd rofi/*
+    ./install-sh
     # Integrate AppImages with AppImageLauncher
     ail-cli integrate MuseScore4.AppImage
     ail-cli integrate Audacity.AppImage
@@ -102,7 +109,7 @@ ln -st ~ .bashrc* .zshrc*
 mkdir -p ~/.config
 ln -s nvim ~/.config/
 ln -s starship.toml ~/.config
-if [[ "$gui" != [nN][oO]* ]]; then
+if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Set up DWM
     ln -st ~ dwm* dmenu
     cd ~/dwm && sudo make install && cd -
