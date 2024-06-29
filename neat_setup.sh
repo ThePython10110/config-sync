@@ -10,7 +10,8 @@
 mkdir -p ~/neat_setup && cd ~/neat_setup
 
 read -p "GUI (Y/n): " gui
-read -p "Minecraft (y/N): " mc
+read -p "Minecraft (y/N): " minecraft
+read -p "Keep temporary files (y/N) " keeptmp
 
 echo "-----------INSTALLING GIT AND GITHUB CLI-------------"
 (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
@@ -53,27 +54,31 @@ if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
 fi
 
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
-    sudo add-apt-repository ppa:minetestdevs/stable
+    sudo add-apt-repository -y ppa:minetestdevs/stable
     sudo apt update
     if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
         flatpak install flathub com.atlauncher.ATLauncher
     fi
     sudo apt install -y gimp nitrogen musescore3 pavucontrol picom minetest \
         scrot lxappearance xdotool xclip simplescreenrecorder bespokesynth \
-        libx11-dev libxft-dev libxinerama-dev xorg libharfbuzz-dev
+        libx11-dev libxft-dev libxinerama-dev xorg libharfbuzz-dev bison \
+        flex pkg-config libxkbcommon-x11-dev libglib2.0-0 libxcb-util1 \
+        libxcb-ewmh2 libxcb-ewmh-dev libxcb-icccm4 libxcb-icccm4-dev \
+        libxcb-xrm-dev libxcb-randr0-dev libxcb-xinerama0-dev libpangocairo-1.0-0 \
+        libpango1.0-dev libstartup-notification0-dev librsvg2-dev automake
 fi
 # Download and install .deb's
 curl "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
-sudo gdebi thorium.deb
+sudo apt install ./thorium.deb
 curl "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
-sudo gdebi fastfetch.deb
+sudo apt install ./fastfetch.deb
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     curl "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
-    sudo gdebi appimagelauncher.deb
+    sudo apt install ./appimagelauncher.deb
     curl "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
-    sudo gdebi discord.deb
+    sudo apt install ./discord.deb
     curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
-    sudo gdebi vscode.deb
+    sudo apt install ./vscode.deb
 fi
 
 # Install NodeJS
@@ -92,7 +97,9 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Install rofi (stupid cd workaround)
     tar -xzf rofi.tar.gz . -C rofi
     cd rofi/*
-    ./install-sh
+    autoreconf
+    ./configure --disable-check && make && sudo make install
+    cd -
     # Integrate AppImages with AppImageLauncher
     ail-cli integrate MuseScore4.AppImage
     ail-cli integrate Audacity.AppImage
@@ -102,7 +109,7 @@ fi
 # Imports my configuration (private repo)
 echo "\n\n------------------SETUP-----------------"
 cd ~
-git clone https://thepython10110/config-sync --recurse-submodules
+git clone https://github.com/thepython10110/config-sync --recurse-submodules
 mv ~/.bashrc .bashrc.old
 cd ~/config-sync
 ln -st ~ .bashrc* .zshrc*
@@ -116,8 +123,9 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
     sudo ln -s dwm.desktop /usr/share/xsessions
 fi
 
-cd ~
-rm -rf ~/neat_setup
+if ! [[ "$keeptmp" =~ [yY]([eE][sS])* ]]; then
+    rm -rf ~/neat_setup
+fi
 
 echo "\n\n-----------DONE--------------"
 exit
