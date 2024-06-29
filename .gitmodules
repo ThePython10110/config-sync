@@ -1,0 +1,6 @@
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/thepython10110/nvim
+[submodule "dwm"]
+	path = dwm
+	url = https://github.com/thepython10110/dwm
