@@ -57,7 +57,7 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
     sudo add-apt-repository -y ppa:minetestdevs/stable
     sudo apt update
     if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
-        flatpak install flathub com.atlauncher.ATLauncher
+        flatpak install -y flathub com.atlauncher.ATLauncher
     fi
     sudo apt install -y gimp nitrogen musescore3 pavucontrol picom minetest \
         scrot lxappearance xdotool xclip simplescreenrecorder bespokesynth \
@@ -69,16 +69,16 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
 fi
 # Download and install .deb's
 curl "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
-sudo apt install ./thorium.deb
+sudo gdebi ./thorium.deb
 curl "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
-sudo apt install ./fastfetch.deb
+sudo gdebi ./fastfetch.deb
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     curl "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
-    sudo apt install ./appimagelauncher.deb
+    sudo gdebi ./appimagelauncher.deb
     curl "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
-    sudo apt install ./discord.deb
+    sudo gdebi ./discord.deb
     curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
-    sudo apt install ./vscode.deb
+    sudo gdebi ./vscode.deb
 fi
 
 # Install NodeJS
