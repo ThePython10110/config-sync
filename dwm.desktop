@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=DWM
+Comment=This session logs you into DWM
+Exec=dwm
+Icon=
+Type=Application
+
