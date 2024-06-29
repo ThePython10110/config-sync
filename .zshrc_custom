@@ -1,0 +1,22 @@
+alias ftumixer="~/gitrepos/FTU-Mixer/source/ftumixer.py &"
+alias thorium="thorium-browser &"
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:$HOME/.local/share/yabridge"
+
+# NNN
+alias nnn='nnn -e'
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG='d:dragdrop;z:autojump;p:preview-tui;r:renamer;e:suedit;k:pskill;i:imgview'
+
+alias icat="kitty +kitten icat $@"
+
+# ZSH stuff
+setopt append_history
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# source ~/.local/share/blesh/ble.sh
+
+#eval "$(atuin init bash)"
+
+#. "$HOME/.atuin/bin/env"
