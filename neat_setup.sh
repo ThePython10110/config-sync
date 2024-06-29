@@ -99,7 +99,9 @@ git clone https://thepython10110/config-sync --recurse-submodules
 mv ~/.bashrc .bashrc.old
 cd ~/config-sync
 ln -st ~ .bashrc* .zshrc*
+mkdir -p ~/.config
 ln -s nvim ~/.config/
+ln -s starship.toml ~/.config
 if [[ "$gui" != [nN][oO]* ]]; then
     # Set up DWM
     ln -st ~ dwm* dmenu
