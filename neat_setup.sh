@@ -55,6 +55,8 @@ fi
 
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     sudo add-apt-repository -y ppa:minetestdevs/stable
+    echo 'deb http://download.opensuse.org/repositories/home:/bespokesynth/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:bespokesynth.list
+    curl -fsSL https://download.opensuse.org/repositories/home:bespokesynth/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_bespokesynth.gpg > /dev/null
     sudo apt update
     if [[ "$minecraft" =~ [yY]([eE][sS])* ]]; then
         flatpak install -y flathub com.atlauncher.ATLauncher
