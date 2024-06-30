@@ -69,17 +69,17 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
         libpango1.0-dev libstartup-notification0-dev librsvg2-dev automake
 fi
 # Download and install .deb's
-curl "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
-sudo gdebi -y ./thorium.deb
-curl "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
-sudo gdebi -y ./fastfetch.deb
+curl -L "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
+sudo gdebi ./thorium.deb
+curl -L "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
+sudo gdebi ./fastfetch.deb
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
-    curl "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
-    sudo gdebi -y ./appimagelauncher.deb
-    curl "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
-    sudo gdebi -y ./discord.deb
-    curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
-    sudo gdebi -y ./vscode.deb
+    curl -L "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
+    sudo gdebi ./appimagelauncher.deb
+    curl -L "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
+    sudo gdebi ./discord.deb
+    curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
+    sudo gdebi ./vscode.deb
 fi
 
 # Install NodeJS
