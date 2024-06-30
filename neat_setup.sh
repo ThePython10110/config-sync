@@ -111,23 +111,22 @@ fi
 echo "\n\n------------------SETUP-----------------"
 cd ~
 git clone https://github.com/thepython10110/config-sync --recurse-submodules
-mv ~/.bashrc .bashrc.old
-cd ~/config-sync
-ln -sf .bashrc ~/.bashrc
-ln -sf .bashrc_custom ~/.bashrc_custom
-ln -sf .zshrc ~/.zshrc
-ln -sf .zshrc_custom ~/.zshrc_custom
+mv ~/.bashrc ~/.bashrc.old
+ln -sf ~/config-sync/.bashrc ~/.bashrc
+ln -sf ~/config-sync/.bashrc_custom ~/.bashrc_custom
+ln -sf ~/config-sync/.zshrc ~/.zshrc
+ln -sf ~/config-sync/.zshrc_custom ~/.zshrc_custom
 mkdir -p ~/.config
-ln -sf nvim ~/.config/nvim
-ln -sf starship.toml ~/.config/starship.toml
-ln -sf .xprofile ~/.xprofile
+ln -sf ~/config-sync/nvim ~/.config/nvim
+ln -sf ~/config-sync/starship.toml ~/.config/starship.toml
+ln -sf ~/config-sync/.xprofile ~/.xprofile
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Set up DWM
-    ln -sf dwm ~/dwm
-    ln -sf dwmblocks ~/dwmblocks
-    ln -sf dmenu ~/dmenu
+    ln -sf ~/config-sync/dwm ~/dwm
+    ln -sf ~/config-sync/dwmblocks ~/dwmblocks
+    ln -sf ~/config-sync/dmenu ~/dmenu
     cd ~/dwm && sudo make install && cd -
-    sudo ln -sf dwm.desktop /usr/share/xsessions/dwm.desktop
+    sudo ln -sf ~/config-sync/dwm.desktop /usr/share/xsessions/dwm.desktop
 fi
 
 # Remove installers and temporary files
