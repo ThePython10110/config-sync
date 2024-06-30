@@ -70,16 +70,16 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
 fi
 # Download and install .deb's
 curl "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
-sudo gdebi ./thorium.deb
+sudo gdebi -y ./thorium.deb
 curl "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
-sudo gdebi ./fastfetch.deb
+sudo gdebi -y ./fastfetch.deb
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     curl "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
-    sudo gdebi ./appimagelauncher.deb
+    sudo gdebi -y ./appimagelauncher.deb
     curl "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
-    sudo gdebi ./discord.deb
+    sudo gdebi -y ./discord.deb
     curl "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
-    sudo gdebi ./vscode.deb
+    sudo gdebi -y ./vscode.deb
 fi
 
 # Install NodeJS
@@ -113,19 +113,24 @@ cd ~
 git clone https://github.com/thepython10110/config-sync --recurse-submodules
 mv ~/.bashrc .bashrc.old
 cd ~/config-sync
-ln -sft ~ .bashrc* .zshrc*
+ln -sf .bashrc ~/.bashrc
+ln -sf .bashrc_custom ~/.bashrc_custom
+ln -sf .zshrc ~/.zshrc
+ln -sf .zshrc_custom ~/.zshrc_custom
 mkdir -p ~/.config
-ln -sf nvim ~/.config/
-ln -sf starship.toml ~/.config
+ln -sf nvim ~/.config/nvim
+ln -sf starship.toml ~/.config/starship.toml
 ln -sf .xprofile ~/.xprofile
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Set up DWM
-    ln -sft ~ dwm* dmenu
+    ln -sf dwm ~/dwm
+    ln -sf dwmblocks ~/dwmblocks
+    ln -sf dmenu ~/dmenu
     cd ~/dwm && sudo make install && cd -
-    # Apparently symlinks don't work here...
-    sudo cp -f dwm.desktop /usr/share/xsessions
+    sudo ln -sf dwm.desktop /usr/share/xsessions/dwm.desktop
 fi
 
+# Remove installers and temporary files
 if ! [[ "$keeptmp" =~ [yY]([eE][sS])* ]]; then
     rm -rf ~/neat_setup
 fi
