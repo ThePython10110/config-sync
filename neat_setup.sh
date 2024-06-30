@@ -2,9 +2,8 @@
 
 # Note: This script is designed for me, and me alone. It clones a private repo and sets things up the way I want them.
 # Should work for Linux Mint
-# curl <url> | bash
-# or wget <url> && chmod +x neat_setup.sh && ./neat_setup.sh
-# where url is https://gist.github.com/ThePython10110/d30451ffd35d8d3e443d792e499f9442/raw/neat_setup.sh
+# wget <url> && chmod +x neat_setup.sh && ./neat_setup.sh
+# where url is https://raw.githubusercontent.com/thepython10110/config-sync/master/neat_setup.sh
 # It sets up DWM too, which is neat.
 
 mkdir -p ~/neat_setup && cd ~/neat_setup
@@ -114,15 +113,17 @@ cd ~
 git clone https://github.com/thepython10110/config-sync --recurse-submodules
 mv ~/.bashrc .bashrc.old
 cd ~/config-sync
-ln -st ~ .bashrc* .zshrc*
+ln -sft ~ .bashrc* .zshrc*
 mkdir -p ~/.config
-ln -s nvim ~/.config/
-ln -s starship.toml ~/.config
+ln -sf nvim ~/.config/
+ln -sf starship.toml ~/.config
+ln -sf .xprofile ~/.xprofile
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Set up DWM
-    ln -st ~ dwm* dmenu
+    ln -sft ~ dwm* dmenu
     cd ~/dwm && sudo make install && cd -
-    sudo ln -s dwm.desktop /usr/share/xsessions
+    # Apparently symlinks don't work here...
+    sudo cp -f dwm.desktop /usr/share/xsessions
 fi
 
 if ! [[ "$keeptmp" =~ [yY]([eE][sS])* ]]; then
