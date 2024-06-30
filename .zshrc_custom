@@ -10,6 +10,8 @@ export NNN_PLUG='d:dragdrop;z:autojump;p:preview-tui;r:renamer;e:suedit;k:pskill
 
 alias icat="kitty +kitten icat $@"
 
+alias sl="sl -Fale"
+
 # ZSH stuff
 setopt append_history
 SAVEHIST=1000

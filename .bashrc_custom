@@ -12,6 +12,8 @@ export NNN_PLUG='d:dragdrop;z:autojump;p:preview-tui;r:renamer;e:suedit;k:pskill
 
 alias icat="kitty +kitten icat $@"
 
+alias sl="sl -Fale"
+
 # source ~/.local/share/blesh/ble.sh
 
 #eval "$(atuin init bash)"
