@@ -70,22 +70,25 @@ if ! [[ "$gui" =~ [nN][oO]* ]]; then
 fi
 # Download and install .deb's
 curl -L "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" -O
-sudo gdebi ./thorium.deb
-curl -L "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o fastfetch.deb && \
-sudo gdebi ./fastfetch.deb
+sudo gdebi -n ./thorium.deb
+curl -L "https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb" -o ./fastfetch.deb && \
+sudo gdebi -n ./fastfetch.deb
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
-    curl -L "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o appimagelauncher.deb
-    sudo gdebi ./appimagelauncher.deb
-    curl -L "https://discord.com/api/download?platform=linux&format=deb" -o discord.deb && \
-    sudo gdebi ./discord.deb
-    curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o vscode.deb && \
-    sudo gdebi ./vscode.deb
+    curl -L "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb" -o ./appimagelauncher.deb
+    sudo gdebi -n ./appimagelauncher.deb
+    curl -L "https://discord.com/api/download?platform=linux&format=deb" -o ./discord.deb && \
+    sudo gdebi -n ./discord.deb
+    curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o ./vscode.deb && \
+    sudo gdebi -n ./vscode.deb
 fi
 
 # Install NodeJS
 curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh && \
 sudo bash nodesource_setup.sh && \
 sudo apt install -y nodejs
+
+# Install Starship
+curl -sS https://starship.rs/install.sh | sh
 
 # Install Neovim
 tar -xzf nvim-linux64.tar.gz
@@ -111,23 +114,26 @@ fi
 echo "\n\n------------------SETUP-----------------"
 cd ~
 git clone https://github.com/thepython10110/config-sync --recurse-submodules
+cd ~/config-sync
 mv ~/.bashrc ~/.bashrc.old
-ln -sf ~/config-sync/.bashrc ~/.bashrc
-ln -sf ~/config-sync/.bashrc_custom ~/.bashrc_custom
-ln -sf ~/config-sync/.zshrc ~/.zshrc
-ln -sf ~/config-sync/.zshrc_custom ~/.zshrc_custom
+ln -sf ./.bashrc ~/.bashrc
+ln -sf ./.bashrc_custom ~/.bashrc_custom
+ln -sf ./.zshrc ~/.zshrc
+ln -sf ./.zshrc_custom ~/.zshrc_custom
 mkdir -p ~/.config
-ln -sf ~/config-sync/nvim ~/.config/nvim
-ln -sf ~/config-sync/starship.toml ~/.config/starship.toml
-ln -sf ~/config-sync/.xprofile ~/.xprofile
+ln -sf ./nvim ~/.config/nvim
+ln -sf ./starship.toml ~/.config/starship.toml
+ln -sf ./.xprofile ~/.xprofile
 if ! [[ "$gui" =~ [nN][oO]* ]]; then
     # Set up DWM
-    ln -sf ~/config-sync/dwm ~/dwm
-    ln -sf ~/config-sync/dwmblocks ~/dwmblocks
-    ln -sf ~/config-sync/dmenu ~/dmenu
-    cd ~/dwm && sudo make install && cd -
-    sudo ln -sf ~/config-sync/dwm.desktop /usr/share/xsessions/dwm.desktop
+    ln -sf ./dwm ~/dwm
+    ln -sf ./dwmblocks ~/dwmblocks
+    ln -sf ./dmenu ~/dmenu
+    cd ~/dwm && sudo make clean install && cd -
+    sudo ln -sf ./dwm.desktop /usr/share/xsessions/dwm.desktop
 fi
+
+cd ~
 
 # Remove installers and temporary files
 if ! [[ "$keeptmp" =~ [yY]([eE][sS])* ]]; then
