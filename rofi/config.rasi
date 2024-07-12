@@ -1,4 +1,4 @@
-@theme "/usr/local/share/rofi/themes/sidebar.rasi"
+//@theme "/usr/local/share/rofi/themes/sidebar.rasi"
 configuration {
 	kb-cancel: "Escape,Alt+space,Control+g,Control+bracketleft";
 	show-icons: true;
@@ -151,3 +151,4 @@ configuration {
       sorting-method:    "name";
   }
 }
+@theme "/usr/share/rofi/themes/sidebar.rasi"

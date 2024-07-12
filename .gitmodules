@@ -10,3 +10,6 @@
 [submodule "dwmblocks"]
 	path = dwmblocks
 	url = https://github.com/thepython10110/dwmblocks
+[submodule "hyprland"]
+	path = hyprland
+	url = https://github.com/thepython10110/hyprland

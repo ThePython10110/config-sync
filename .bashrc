@@ -66,7 +66,7 @@ alias rm='trash -v'
 if command -v lsb_release >/dev/null; then
 	DISTRIBUTION=$(lsb_release -si)
 
-	if [ "$DISTRIBUTION" = "Fedora" ] || [ "$DISTRIBUTION" = "Arch" ]; then
+	if [ "$DISTRIBUTION" = "Fedora" ] || [ "$DISTRIBUTION" = "Arch" ] || [ "$DISTRIBUTION" = "EndeavourOS" ] ; then
 		alias cat='bat'
 	else
 		alias cat='batcat'
