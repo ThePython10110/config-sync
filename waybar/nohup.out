@@ -1,0 +1,60 @@
+[2024-07-12 13:30:57.450] [info] Using configuration file /home/nolan/.config/waybar/config.jsonc
+[2024-07-12 13:30:57.458] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2024-07-12 13:30:57.458] [info] Using CSS file /etc/xdg/waybar/style.css
+[2024-07-12 13:30:57.486] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+[2024-07-12 13:30:57.491] [warning] module sway/mode: Disabling module "sway/mode", Socket path is empty
+[2024-07-12 13:30:57.495] [warning] module sway/scratchpad: Disabling module "sway/scratchpad", Socket path is empty
+[2024-07-12 13:30:57.502] [error] media stopped unexpectedly, is it endless?
+[2024-07-12 13:30:57.503] [warning] module sway/window: Disabling module "sway/window", Socket path is empty
+[2024-07-12 13:30:57.506] [warning] module backlight: Disabling module "backlight", No backlight found
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event0 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event1 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event2 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event3 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event8 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event9 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event10 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/mice (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/mouse1 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event4 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event5 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event6 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event7 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event11 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event12 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event13 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event14 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event15 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] Can't open /dev/input/event16 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.506] [warning] module keyboard-state: Disabling module "keyboard-state", Failed to find keyboard device: EACCES Permission denied
+[2024-07-12 13:30:57.510] [warning] module sway/language: Disabling module "sway/language", Socket path is empty
+[2024-07-12 13:30:57.535] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+[2024-07-12 13:30:57.538] [warning] module sway/mode: Disabling module "sway/mode", Socket path is empty
+[2024-07-12 13:30:57.542] [warning] module sway/scratchpad: Disabling module "sway/scratchpad", Socket path is empty
+[2024-07-12 13:30:57.546] [warning] module sway/window: Disabling module "sway/window", Socket path is empty
+[2024-07-12 13:30:57.546] [error] media stopped unexpectedly, is it endless?
+[2024-07-12 13:30:57.547] [warning] module backlight: Disabling module "backlight", No backlight found
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event0 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event1 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event2 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event3 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event8 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event9 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event10 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/mice (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/mouse1 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event4 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event5 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event6 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event7 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event11 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event12 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event13 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event14 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event15 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] Can't open /dev/input/event16 (are you in the input group?): EACCES Permission denied
+[2024-07-12 13:30:57.547] [warning] module keyboard-state: Disabling module "keyboard-state", Failed to find keyboard device: EACCES Permission denied
+[2024-07-12 13:30:57.550] [warning] module sway/language: Disabling module "sway/language", Socket path is empty
+[2024-07-12 13:30:57.811] [info] Bar configured (width: 1920, height: 30) for output: HDMI-A-1
+[2024-07-12 13:30:57.812] [info] Bar configured (width: 1920, height: 30) for output: DP-2
+Gdk-Message: 13:47:05.758: Error reading events from display: Broken pipe
