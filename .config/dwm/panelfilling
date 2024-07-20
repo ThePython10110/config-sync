@@ -1,0 +1,18 @@
+#! /bin/bash
+
+echo "$$" > ~/.cache/panelfillingpid
+
+get_cpu() {
+   #cpu="$(printf '%b' \"import psutil\nprint('CPU: {}%'.format(psutil.cpu_percent(interval=1)))\" | python3)"
+   cpu="CPU: ??%"
+}
+
+while true; do
+#   get_cpu
+#   xsetroot -name "$cpu\
+#       $(echo '% | RAM: ')$(free -m  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 3)$(echo ' MB | ')\
+#       $(echo "{{answer=$(/usr/bin/cat /sys/class/drm/card0/gt_cur_freq_mhz)/$(/usr/bin/cat /sys/class/drm/card0/gt_max_freq_mhz); scale=0; answer*100/1}}" | bc -l)$(echo '% |')\
+#       $(date +%A" "%B" "%d" "%r)"
+   xsetroot -name "$(echo 'RAM: ')$(free -m  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 3)$(echo ' MB | ')$(date +%a" "%B" "%d" "%r)"
+   sleep 1
+done

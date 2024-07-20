@@ -1,1 +1,3 @@
 stow-ignore
+.git*
+README*

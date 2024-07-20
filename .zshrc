@@ -3,7 +3,7 @@
 iatest=$(expr index "$-" i)
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
@@ -122,7 +122,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -527,8 +527,10 @@ lazyg() {
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 
 # Install Starship - curl -sS https://starship.rs/install.sh | sh
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+if [ $TERM != 'linux' ]; then
+    eval "$(starship init zsh)"
+fi
 
+eval "$(zoxide init zsh --cmd cd)"
 
 source ~/.zshrc_custom
