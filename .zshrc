@@ -527,9 +527,9 @@ lazyg() {
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 
 # Install Starship - curl -sS https://starship.rs/install.sh | sh
-if [ $TERM != 'linux' ]; then
-    eval "$(starship init zsh)"
-fi
+#if [ $TERM != 'linux' ]; then
+#    eval "$(starship init zsh)"
+#fi
 
 eval "$(zoxide init zsh --cmd cd)"
 

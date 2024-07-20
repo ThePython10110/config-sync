@@ -1,2 +1,0 @@
-#!/usr/bin/bash
-xautolock -time 10 -locker "xset -display $DISPLAY dpms force off"

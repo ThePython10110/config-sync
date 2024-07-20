@@ -1,15 +1,15 @@
-[submodule "nvim"]
-	path = nvim
+[submodule ".config/hypr"]
+	path = .config/hypr
+	url = https://github.com/thepython10110/hypr
+[submodule ".config/nvim"]
+	path = .config/nvim
 	url = https://github.com/thepython10110/nvim
-[submodule "dwm"]
-	path = dwm
+[submodule ".config/dwm"]
+	path = .config/dwm
 	url = https://github.com/thepython10110/dwm
-[submodule "dmenu"]
-	path = dmenu
+[submodule ".config/dmenu"]
+	path = .config/dmenu
 	url = https://github.com/thepython10110/dmenu
-[submodule "dwmblocks"]
-	path = dwmblocks
+[submodule ".config/dwmblocks"]
+	path = .config/dwmblocks
 	url = https://github.com/thepython10110/dwmblocks
-[submodule "hyprland"]
-	path = hyprland
-	url = https://github.com/thepython10110/hyprland

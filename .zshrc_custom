@@ -17,6 +17,11 @@ setopt append_history
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+# Oh My Posh
+if [ "$TERM" != "linux" ]; then
+  eval "$(oh-my-posh init zsh --config /home/nolan/.config/oh-my-posh.json)"
+fi
+
 # source ~/.local/share/blesh/ble.sh
 
 #eval "$(atuin init bash)"
