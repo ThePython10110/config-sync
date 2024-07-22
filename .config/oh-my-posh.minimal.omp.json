@@ -1,11 +1,11 @@
 {
 	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
 	"palette": {
-		"bg": "#292929",
-		"fg1": "#14CB3E",
-		"fg2": "#26C6DA",
-		"fg3": "#57E1D4",
-		"fg4": "#40C4FF"
+		"bg": "transparent",
+		"fg1": "green",
+		"fg2": "cyan",
+		"fg3": "lightCyan",
+		"fg4": "cyan"
 	},
 	"blocks": [
 		{
@@ -14,9 +14,11 @@
 				{
 					"background": "p:bg",
 					"foreground": "p:fg1",
-					"leading_diamond": "\u256d\u2500\ue0b2",
-					"style": "diamond",
-					"template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} \ue0b1",
+					"style": "plain",
+					"template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} |",
+					"properties": {
+						"display_distro_name": true
+					},
 					"type": "os"
 				},
 				{
@@ -28,7 +30,7 @@
 						"threshold": 500
 					},
 					"style": "powerline",
-					"template": " {{ .FormattedMs }} \ue0b1",
+					"template": " {{ .FormattedMs }} |",
 					"type": "executiontime"
 				},
 				{
@@ -42,22 +44,39 @@
 					"background": "p:bg",
 					"foreground": "p:fg1",
 					"properties": {
-						"style": "full",
-						"trailing_diamond": "\ue0c6"
+						"style": "full"
 					},
-					"style": "diamond",
+					"style": "plain",
 					"template": " {{ .Path }} ",
 					"type": "path"
 				},
 				{
 					"background": "p:bg",
 					"foreground": "p:fg3",
-					"style": "powerline",
+					"style": "plain",
 					"type": "git",
-					"template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+					"template": "| {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} s({{ .Staging.String }}){{ end }} ",
 					"properties": {
 						"fetch_status": true,
-						"fetch_upstream_icon": true
+						"tag_icon": "t:",
+						"git_icon": "",
+						"merge_icon": "m:",
+						"branch_icon": "b:",
+						"commit_icon": "c:",
+						"rebase_icon": "rb:",
+						"revert_icon": "rv:",
+						"github_icon": "gh:",
+						"no_commits_icon": "(empty)",
+						"branch_identical_icon": "≡",
+						"gitlab_icon": "",
+						"codeberg_icon": "",
+						"bitbucket_icon": "",
+						"codecommit_icon": "",
+						"branch_gone_icon": "(branch gone)",
+						"cherry_pick_icon": "cp:",
+						"branch_ahead_icon": "↑",
+						"azure_devops_icon": "",
+						"branch_behind_icon": "↓"
 					}
 				},
 				{
