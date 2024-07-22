@@ -1,9 +1,6 @@
 [submodule ".config/hypr"]
 	path = .config/hypr
 	url = https://github.com/thepython10110/hypr
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = https://github.com/thepython10110/nvim
 [submodule ".config/dwm"]
 	path = .config/dwm
 	url = https://github.com/thepython10110/dwm
