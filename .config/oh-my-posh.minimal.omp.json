@@ -88,13 +88,13 @@
 						"{{ if eq \"Discharging\" .State.String }}p:fg1{{ end }}"
 					],
 					"properties": {
-						"charged_icon": "\uf240 ",
-						"charging_icon": "\ueb2d ",
-						"discharging_icon": "\ueb2d ",
-						"text": "\ue0b0"
+						"charged_icon": ":)",
+						"charging_icon": "+ ",
+						"discharging_icon": "- ",
+						"text": "Battery"
 					},
 					"style": "powerline",
-					"template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} \ue0b1",
+					"template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} |",
 					"type": "battery"
 				},
 				{
@@ -108,8 +108,8 @@
 						"display_exit_code": true
 					},
 					"style": "diamond",
-					"template": " {{ if .Error}}X {{ .Code }} ({{ reason .Code }}){{ else }}{{ end }} ",
-					"trailing_diamond": "\ue0b4",
+					"template": " {{ if .Error}}X {{ .Code }} ({{ reason .Code }}){{ else }}:){{ end }} ",
+					"trailing_diamond": "|",
 					"type": "status"
 				}
 			],
@@ -123,20 +123,19 @@
 				{
 					"background": "p:bg",
 					"foreground": "p:fg1",
-					"leading_diamond": "\ue0b6",
+					"leading_diamond": "|",
 					"style": "diamond",
-					"template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} <p:fg1>\ue0b3</> ",
+					"template": " {{ if .SSHSession }}SSH {{ end }}{{ .UserName }}@{{ .HostName }} <p:fg1>|</> ",
 					"type": "session"
 				},
 				{
 					"background": "p:bg",
 					"foreground": "p:fg1",
 					"properties": {
-						"time_format": "15:04:05, _2"
+						"time_format": "1:04:05 AM, _2"
 					},
-					"style": "diamond",
-					"template": "{{ .CurrentDate | date .Format }} \uf073 ",
-					"trailing_diamond": "\ue0b4",
+					"style": "plain",
+					"template": "{{ .CurrentDate | date .Format }} ",
 					"type": "time"
 				}
 			],
@@ -150,12 +149,10 @@
 					"properties": {
 						"always_enabled": true
 					},
-					"background": "p:fg1",
-					"foreground": "p:bg",
 					"style": "diamond",
-					"leading_diamond": "\u2570\u2500",
-					"template": "{{ .Shell }}",
-					"trailing_diamond": "",
+					"foreground": "p:fg1",
+					"leading_diamond": " ",
+					"template": "{{ .Shell }}>",
 					"type": "path"
 				}
 			],
@@ -165,7 +162,7 @@
 	"transient_prompt": {
 		"background": "p:bg",
 		"foreground": "p:fg1",
-		"template": "<p:bg,transparent></>{{ .Shell }}<p:bg,transparent> </>"
+		"template": "{{ .Shell }}> "
 	},
 	"final_space": true,
 	"version": 2
