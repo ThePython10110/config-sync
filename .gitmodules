@@ -10,3 +10,6 @@
 [submodule ".config/dwmblocks"]
 	path = .config/dwmblocks
 	url = https://github.com/thepython10110/dwmblocks
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/thepython10110/nvim
