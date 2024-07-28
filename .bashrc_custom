@@ -12,12 +12,36 @@ export NNN_PLUG='d:dragdrop;z:autojump;p:preview-tui;r:renamer;e:suedit;k:pskill
 
 alias icat="kitty +kitten icat $@"
 
-alias pacman="sl"
-
+# Make SL interruptable
 alias sl="sl -Fale"
 
-# source ~/.local/share/blesh/ble.sh
+alias cmatrix="echo 'Nope'"
 
-#eval "$(atuin init bash)"
+# mc-ssh
+alias mc-ssh="ssh nolan@mc-server"
+alias mc-command="mc-ssh -t \"mc-command $*\""
+alias mc-console="mc-ssh -t mc-console"
 
-#. "$HOME/.atuin/bin/env"
+# Oh My Posh
+if [ $DISPLAY ]; then
+  eval "$(oh-my-posh init bash --config /home/nolan/.config/oh-my-posh.omp.json)"
+else
+  eval "$(oh-my-posh init bash --config /home/nolan/.config/oh-my-posh.minimal.omp.json)"
+fi
+
+posh-theme() {
+  eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/$1.omp.json)"
+}
+
+posh-theme-yaml() {
+  eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/$1.omp.yaml)"
+}
+
+# FZF
+source <(fzf --bash)
+alias neatfzf="fzf -m --preview=\"bat--color=always {}\""
+
+# Bash stuff
+set completion-ignore-case On
+
+# [[ ${BLE_VERSION-} ]] && ble-attach

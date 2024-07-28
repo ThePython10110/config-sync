@@ -33,7 +33,8 @@ setopt hist_ignore_space
 setopt hist_ignore_dups
 
 # ZSH plugins
-plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+# plugins=(zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+plugins=(zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 
 # Source Oh My ZSH for plugins to work
 source $ZSH/oh-my-zsh.sh

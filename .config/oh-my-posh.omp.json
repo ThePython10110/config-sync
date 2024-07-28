@@ -106,7 +106,7 @@
 					"foreground": "p:fg1",
 					"leading_diamond": "\ue0b6",
 					"style": "diamond",
-					"template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} <p:fg1>\ue0b3</> ",
+					"template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .HostName }} <p:fg1>\ue0b3</> ",
 					"type": "session"
 				},
 				{

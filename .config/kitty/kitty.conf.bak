@@ -37,3 +37,7 @@ font_family FiraCode Nerd Font Reg
 
 # Show notification for long commands
 # unfocused 30
+
+# Don't break nnn preview
+listen_on unix:@kitty
+allow_remote_control yes

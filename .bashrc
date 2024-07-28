@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# [[ $- == *i* ]] && source /usr/share/blesh/ble.sh --noattach
+
 iatest=$(expr index "$-" i)
 
 #######################################################
@@ -295,7 +298,7 @@ cpg() {
 # Move and go to the directory
 mvg() {
 	if [ -d "$2" ]; then
-# 		mv "$1" "$2" && cd "$2"
+ 		mv "$1" "$2" && cd "$2"
 	else
 		mv "$1" "$2"
 	fi
@@ -493,8 +496,10 @@ bind '"\C-f":"zi\n"'
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 
 # Install Starship - curl -sS https://starship.rs/install.sh | sh
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
+#if [ $TERM != 'linux' ]; then
+#    eval "$(starship init bash)"
+#fi
 
+eval "$(zoxide init bash --cmd cd)"
 
 source ~/.bashrc_custom

@@ -125,7 +125,7 @@
 					"foreground": "p:fg1",
 					"leading_diamond": "|",
 					"style": "diamond",
-					"template": " {{ if .SSHSession }}SSH {{ end }}{{ .UserName }}@{{ .HostName }} <p:fg1>|</> ",
+					"template": " {{ if .SSHSession }}SSH {{ end }}{{ .HostName }} <p:fg1>|</> ",
 					"type": "session"
 				},
 				{
