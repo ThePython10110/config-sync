@@ -45,3 +45,8 @@ alias neatfzf="fzf -m --preview=\"bat--color=always {}\""
 set completion-ignore-case On
 
 # [[ ${BLE_VERSION-} ]] && ble-attach
+
+neatrogen() {
+  nitrogen --head=0 --set-zoom-fill "$HOME/config-sync/stow-ignore/$1"
+  nitrogen --head=1 --set-zoom-fill "$HOME/config-sync/stow-ignore/$1"
+}
