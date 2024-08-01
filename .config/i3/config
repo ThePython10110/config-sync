@@ -67,6 +67,17 @@ bindsym Mod1+space exec "rofi -show combi -combi-modes 'window,drun' -modes 'com
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
+# Browser
+bindsym Mod4+t exec "google-chrome-stable --profile-directory=Default"
+bindsym Mod4+Shift+t exec "google-chrome-stable --profile-directory='Profile 1'"
+bindsym Mod4+Mod1+t exec "google-chrome-stable --profile-directory='Profile 2'"
+
+# Screenshot
+bindsym Mod4+p exec "scrot -fs temp.png -e 'xclip -selection clipboard -target image/png -i $f ; rm $f'"
+bindsym Mod4+Shift+p exec "scrot -fs ~/Pictures/%d-%m-%y-%H%M%S.png"
+bindsym Mod4+o exec "scrot temp.png -e 'xclip -selection clipboard -target image/png -i $f ; rm $f'"
+bindsym Mod4+Shift+o exec "scrot ~/Pictures/%d-%m-%y-%H%M%S.png"
+
 # change focus
 bindsym Mod4+$left focus left
 bindsym Mod4+$down focus down
