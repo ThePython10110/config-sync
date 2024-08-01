@@ -23,7 +23,7 @@ alias mc-command="mc-ssh -t \"mc-command $*\""
 alias mc-console="mc-ssh -t mc-console"
 
 # Oh My Posh
-if [ $DISPLAY ]; then
+if [ -n $DISPLAY ]; then
   eval "$(oh-my-posh init bash --config /home/nolan/.config/oh-my-posh.omp.json)"
 else
   eval "$(oh-my-posh init bash --config /home/nolan/.config/oh-my-posh.minimal.omp.json)"

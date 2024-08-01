@@ -5,6 +5,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Run numlockx
+/usr/bin/numlockx on
+
 
 xrandr --output DP-2 --left-of HDMI-1 --primary
 picom &
