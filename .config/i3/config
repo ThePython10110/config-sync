@@ -60,7 +60,7 @@ bindsym Mod4+Return exec i3-sensible-terminal
 bindsym Mod4+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+Space exec rofi -show combi -combi-modes 'window,drun' -modes 'combi,filebrowser,run'
+bindsym Mod1+space exec "rofi -show combi -combi-modes 'window,drun' -modes 'combi,filebrowser,run'"
 # A more modern dmenu replacement is rofi:
 # bindsym Mod1+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -92,10 +92,10 @@ bindsym Mod4+Shift+Up move up
 bindsym Mod4+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod4+h split h
+bindsym Mod1+h split h
 
 # split in vertical orientation
-bindsym Mod4+v split v
+bindsym Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
@@ -166,7 +166,7 @@ bindsym Mod4+Mod1+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod1+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
