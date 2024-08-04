@@ -23,25 +23,38 @@ command=$HOME/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+[i3-focusedwindow]
+label=[]=
+interval=persist
+background=#007700
+
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
 
-[volume]
-label=♪
-interval=once
-signal=18
+# [volume]
+# label=♪ 
+# interval=once
+# signal=18
 # STEP=5%
+
+[volume-pipewire]
+interval=persist
+SUBSCRIBE=1
+USE_DESCRIPTION=1
+USE_ALSA_NAME=1
+LONG_FORMAT="${SYMB} ${VOL}%"
+SHORT_FORMAT="${SYMB} ${VOL}%"
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=MEM: 
 # separator=false
-interval=30
+interval=5
 
 # [memory]
 # label=SWAP
@@ -54,7 +67,7 @@ interval=30
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
+# [disk]
 #label=HOME
 #DIR=/mnt/data
 #interval=30
@@ -84,7 +97,7 @@ interval=30
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+label=CPU: 
 interval=10
 min_width=CPU 100.00%
 #separator=false
@@ -100,12 +113,6 @@ min_width=CPU 100.00%
 #label=BAT
 #label=⚡
 #interval=30
-
-# Date Time
-#
-[time]
-command=date '+%Y-%m-%d %I:%M:%S %p'
-interval=1
 
 # Generic media player support
 #
@@ -150,3 +157,10 @@ signal=18
 #markup=pango
 #interval=once
 #signal=11
+
+# Date Time
+
+[time]
+command=date '+%Y-%m-%d %I:%M:%S %p'
+interval=1
+# color=#99ff99

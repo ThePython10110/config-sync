@@ -50,3 +50,8 @@ neatrogen() {
   nitrogen --head=0 --set-zoom-fill "$HOME/config-sync/stow-ignore/$1"
   nitrogen --head=1 --set-zoom-fill "$HOME/config-sync/stow-ignore/$1"
 }
+
+alias why="echo Because"
+lolcow() {
+  cowsay $@ | lolcat
+}

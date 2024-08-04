@@ -40,4 +40,5 @@ nitrogen --restore
 export _JAVA_AWT_WM_NONREPARENTING=1
 export TERMINAL=kitty
 
-exec i3
+cd ~
+exec dwm
