@@ -1,0 +1,9 @@
+[Unit]
+Description=minegrub theme splash update service
+
+[Service]
+type=simple
+ExecStart=/usr/bin/python3 /boot/grub/themes/minegrub/update_theme.py
+
+[Install]
+WantedBy=multi-user.target

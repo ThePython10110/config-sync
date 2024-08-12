@@ -1,0 +1,1 @@
+Basically just run `install.sh` then edit `/etc/default/grub` to set the theme
