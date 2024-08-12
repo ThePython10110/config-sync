@@ -3,6 +3,7 @@ local servers = {
   "bashls",
   "jsonls",
   "clangd",
+  "yamlls",
 }
 
 return {
