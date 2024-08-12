@@ -4,6 +4,10 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+-- Neovide
+vim.g.neovide_scale_factor = 0.7
+vim.g.neovide_cursor_trail_size = 0
+
 -- Sign column
 vim.opt.signcolumn = "yes"
 
