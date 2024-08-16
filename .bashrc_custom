@@ -22,8 +22,8 @@ alias mc-ssh="ssh nolan@mc-server"
 alias mc-command="mc-ssh -t \"mc-command $*\""
 alias mc-console="mc-ssh -t mc-console"
 
-if [ -e .bashrc_computer ]; then
-  source .bashrc_computer
+if [ -e ~/.bashrc_computer ]; then
+  source ~/.bashrc_computer
 fi
 
 posh-theme() {
