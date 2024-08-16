@@ -1,6 +1,5 @@
 #!/usr/bin/bash
-sudo cp ./mainmenu.cfg /boot/grub
-sudo cp ./themes /boot/grub
+sudo cp -rt /boot/grub ./mainmenu.cfg ./themes
 sudo cp ./05_twomenus /etc/grub.d
 sudo cp ./minegrub-update.service /etc/systemd/system
 sudo systemctl enable minegrub-update.service
